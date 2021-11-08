@@ -5,7 +5,7 @@ from django.db.models.fields import AutoField
 class Movie(models.model):
     #Fields (database attribute)
     ID = models.IntegerField(AutoField, primary_key=True)
-    dirBy = models.CharField(max_length=25, help_text="Enter the name of the director who directed the movie")
+    dirBy = models.ForeignKey(max_length=25, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=50, help_text="Enter the name of the movie")
     year = models.IntegerField()
 
@@ -55,3 +55,7 @@ class Movie(models.model):
         choices=GENRE_CHOICES,
         default=ACTION,
     )
+
+    #Methods
+    def __str__(self):
+        return self.name
