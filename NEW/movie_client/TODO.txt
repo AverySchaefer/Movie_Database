@@ -1,2 +1,0 @@
-FRONTEND TODO:
-- Create route pages (on section Creating Components, yet to start)
