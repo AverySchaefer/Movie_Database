@@ -4,17 +4,17 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 // We import all the components we need in our app
-import Navbar from "./components/navbar";
-import Edit from "./components/edit";
+import Navbar from "./components/dashboard/navbar";
+import Edit from "./components/crud/edit";
 import Create from "./components/create";
-import RecordList from "./components/recordList";
+import Movielist from "./components/crud/movieList";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Route exact path="/">
-        <RecordList />
+        <MovieListList />
       </Route>
       <Route path="/edit/:id" component={Edit} />
       <Route path="/create">

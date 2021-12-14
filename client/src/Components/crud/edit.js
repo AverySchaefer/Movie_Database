@@ -26,6 +26,7 @@ class Edit extends Component {
         seen: false,
         score: 0,
         genre: "",
+        movies: [],
     };
   }
   // This will get the record based on the id from the database.
