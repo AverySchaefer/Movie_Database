@@ -110,7 +110,7 @@ class Edit extends Component {
     axios
       .post(
         "http://localhost:5000/update/" + this.props.match.params.id,
-        newEditedperson
+        newEditedMovie
       )
       .then((res) => console.log(res.data));
  

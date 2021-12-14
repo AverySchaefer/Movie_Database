@@ -197,6 +197,7 @@ export default class Create extends Component {
                 />
                 <label for="seen">I have seen the movie</label>
             </div>
+        </div>
             <div className="form-group">
                 <label>What Score Would You Give The Movie: </label>
                 <input
@@ -258,7 +259,6 @@ export default class Create extends Component {
               />
               <label className="form-check-label">Sci-Fi</label>
             </div>
-          </div>
           </div>
           <div className="form-group">
             <input
