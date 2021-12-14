@@ -7,14 +7,14 @@ import { Route } from "react-router-dom";
 import Navbar from "./Components/dashboard/navbar";
 import Edit from "./Components/crud/edit";
 import Create from "./Components/crud/create";
-import Movielist from "./Components/crud/movieList";
+import MovieList from "./Components/crud/movieList";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Route exact path="/">
-        <movieList />
+        <MovieList />
       </Route>
       <Route path="/edit/:id" component={Edit} />
       <Route path="/create">

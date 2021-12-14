@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 
 const Movie = (props) => (
   <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.dirBy}</td>
-    <td>{props.record.year}</td>
-    <td>{props.record.format}</td>
-    <td>{props.record.seen}</td>
-    <td>{props.record.score}</td>
-    <td>{props.record.genre}</td>
+    <td>{props.movie.name}</td>
+    <td>{props.movie.dirBy}</td>
+    <td>{props.movie.year}</td>
+    <td>{props.movie.format}</td>
+    <td>{props.movie.seen}</td>
+    <td>{props.movie.score}</td>
+    <td>{props.movie.genre}</td>
     <td>
-      <Link to={"/edit/" + props.record._id}>Edit</Link> |
+      <Link to={"/edit/" + props.movie._id}>Edit</Link> |
       <a
         href="/"
         onClick={() => {
-          props.deleteMovie(props.record._id);
+          props.deleteMovie(props.movie._id);
         }}
       >
         Delete
@@ -26,11 +26,11 @@ const Movie = (props) => (
   </tr>
 );
 
-export default class RecordList extends Component {
+export default class MovieList extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
-    this.deleteMovie = this.deleteRecord.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
     this.state = { movies: [] };
   }
 
