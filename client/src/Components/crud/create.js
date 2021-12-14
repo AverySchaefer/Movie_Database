@@ -210,55 +210,55 @@ export default class Create extends Component {
                 />
             </div>
             <div className="form-group">
-            <label>What is the Genre of the Movie?</label>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="genreOptions"
-                id="actionGenre"
-                value="Action"
-                checked={this.state.format === "Action"}
-                onChange={this.onChangeGenre}
-              />
-              <label className="form-check-label">Action/Adventure</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="genreOptions"
-                id="comedyGenre"
-                value="comedy"
-                checked={this.state.format === "comedy"}
-                onChange={this.onChangeGenre}
-              />
-              <label className="form-check-label">Comedy</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="genreOptions"
-                id="horrorGenre"
-                value="Horror"
-                checked={this.state.format === "Horror"}
-                onChange={this.onChangeGenre}
-              />
-              <label className="form-check-label">Horror</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="genreOptions"
-                id="sciFiGenre"
-                value="SciFi"
-                checked={this.state.format === "SciFi"}
-                onChange={this.onChangeGenre}
-              />
-              <label className="form-check-label">Sci-Fi</label>
-            </div>
+                <label>What is the Genre of the Movie?</label>
+                <div className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name="genreOptions"
+                        id="actionGenre"
+                        value="Action"
+                        checked={this.state.format === "Action"}
+                        onChange={this.onChangeGenre}
+                    />
+                    <label className="form-check-label">Action/Adventure</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name="genreOptions"
+                        id="comedyGenre"
+                        value="comedy"
+                        checked={this.state.format === "comedy"}
+                        onChange={this.onChangeGenre}
+                    />
+                    <label className="form-check-label">Comedy</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name="genreOptions"
+                        id="horrorGenre"
+                        value="Horror"
+                        checked={this.state.format === "Horror"}
+                        onChange={this.onChangeGenre}
+                    />
+                    <label className="form-check-label">Horror</label>
+                </div>
+                <div className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="radio"
+                        name="genreOptions"
+                        id="sciFiGenre"
+                        value="SciFi"
+                        checked={this.state.format === "SciFi"}
+                        onChange={this.onChangeGenre}
+                    />
+                    <label className="form-check-label">Sci-Fi</label>
+                </div>
           </div>
           <div className="form-group">
             <input
