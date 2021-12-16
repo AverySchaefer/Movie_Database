@@ -10,7 +10,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 //Find every movie
 movieRoutes.route("/movie").get(function (req, res) {
-    let db_connect = dbo.getDb("movieDB");
+    let db_connect = dbo.getDb();
     db_connect
       .collection("movies")
       .find({})
@@ -30,14 +30,67 @@ movieRoutes.route("/movie/:id").get(function (req, res) {
           if (err) throw err;
           res.json(result);
         });
-  });
+});
+
+//Get all movies better than a specific score
+movieRoutes.route("/movie/:score").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { score: {$gt: req.params.score} };
+  db_connect
+      .collection("movies")
+      .find(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+//Get a single movie by name
+movieRoutes.route("/movie/:name").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { name: req.params.name };
+  db_connect
+      .collection("movies")
+      .findOne(myquery, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+//Get a total count of all movies with each score
+movieRoutes.route("/movieByScore").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  db_connect
+      .collection("movies")
+      .aggregate({$group: {_id: "$score", totalMovies: {$sum: 1}}}, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
+//Get all movies by directors that are awarded
+movieRoutes.route("/awardedMovies").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  db_connect
+      .collection("movies")
+      .aggregate({
+        $lookup: {
+            from: "directors", 
+            localField: "movies.dirBy",
+            foreignField: "name",
+            as: "directedMovies" },
+        $match: {awarded: true},
+      }, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
 
 //Create a new movie item
 movieRoutes.route("/movie/add").post(function (req, response) {
     let db_connect = dbo.getDb();
     let myobj = {
-      dirBy: req.body.dirBy,
       name: req.body.name,
+      dirBy: req.body.dirBy,
       year: req.body.year,
       format: req.body.format,
       seen: req.body.seen,
@@ -56,8 +109,8 @@ movieRoutes.route("/update/:id").post(function (req, response) {
     let myquery = { _id: ObjectId( req.params.id )};
     let newvalues = {
       $set: {
-        dirBy: req.body.dirBy,
         name: req.body.name,
+        dirBy: req.body.dirBy,
         year: req.body.year,
         format: req.body.format,
         seen: req.body.seen,
